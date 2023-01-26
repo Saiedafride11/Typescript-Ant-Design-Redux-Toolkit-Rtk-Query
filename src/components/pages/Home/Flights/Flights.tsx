@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Col } from 'antd/es/grid';
-import { Input, Select, Space, Row, Button } from 'antd';
+import { Input, Select, Space, Row, Button, Skeleton, Card } from 'antd';
 import { useGetFlightsQuery } from '../../../../features/api/apiSlice';
 import Flight from './Flight';
+import LoaderFlights from '../../../ui/LoaderFlights';
+import Error from '../../../ui/Error';
 
 type FlightProps = { 
       flight: {
@@ -48,11 +50,10 @@ const Flights = () => {
 
     let content = null;
     if (isLoading){
-        content = <p>Loading</p>
+        content = <LoaderFlights/>
     }
     if (!isLoading && isError){
-      //   content = <Error message="There was an error occured!"/>
-        content = <p>There was an error occured!</p>
+        content = <Error message="There was an error occured!"/>
     }
     if (!isLoading && !isError && flights?.length === 0) {
         content = <p>No videos found!</p>

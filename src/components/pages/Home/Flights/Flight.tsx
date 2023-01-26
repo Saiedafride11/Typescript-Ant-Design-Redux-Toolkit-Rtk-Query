@@ -27,7 +27,7 @@ const Flight = ({flight} : FlightProps) => {
       }
       return (
             <div>
-                  <Card onClick={handleFlightDetails}>
+                  <Card onClick={handleFlightDetails} style={{cursor: 'pointer'}}>
                         <Image
                               width="100"
                               height={200}
