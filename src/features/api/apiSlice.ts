@@ -2,7 +2,16 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
 export interface Flights {
       flight_number: number,
-      mission_name: string
+      mission_name: string,
+      launch_year: string,
+      details: string,
+      upcoming: boolean,
+      links: {
+            mission_patch: string;
+      };
+      rocket: {
+            rocket_name: string;
+      };
 }
 
 export const apiSlice = createApi({
