@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Col } from 'antd/es/grid';
-import { Input, Select, Space, Row, Button, Skeleton, Card } from 'antd';
+import { Input, Select, Space, Row, Button, Card } from 'antd';
 import { useGetFlightsQuery } from '../../../../features/api/apiSlice';
 import Flight from './Flight';
 import LoaderFlights from '../../../ui/LoaderFlights';
@@ -39,13 +39,6 @@ const Flights = () => {
                   setLaunch(value);
                   setStatus("Launch Status");
                   setUpcoming("Upcoming");
-
-                  // To set two dates to two variables
-                  // const todayDate = new Date();
-                  // const thatDate = new Date("2020-08-29T07:40:05.000Z");
-                  // const Difference_In_Time = todayDate.getTime() - thatDate.getTime();
-                  // const diffDays = Math.ceil(Difference_In_Time / (1000 * 60 * 60 * 24));
-                  // console.log(diffDays + " days");
 
                   let day:number;
                   if(value === "Last Week"){
@@ -154,7 +147,7 @@ const Flights = () => {
                   </Row>
     }
     if (!isLoading && !isError && searchNoResult === true ) {
-      content = <Card style={{width: '100%', height: '100vh'}}>
+      content = <Card style={{width: '100%', height: '80vh'}}>
                         <p>Search results not found!</p>
                 </Card>
   }
@@ -209,3 +202,13 @@ const Flights = () => {
 
 
 export default Flights;
+
+
+
+
+// To set two dates to two variables
+// const todayDate = new Date();
+// const thatDate = new Date("2020-08-29T07:40:05.000Z");
+// const Difference_In_Time = todayDate.getTime() - thatDate.getTime();
+// const diffDays = Math.ceil(Difference_In_Time / (1000 * 60 * 60 * 24));
+// console.log(diffDays + " days");

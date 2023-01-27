@@ -1,4 +1,4 @@
 # Getting Started with Create React App
 
-### `npm i`
-### `npm start`
+### Install Project - `npm i`
+### Run Projects - `npm start`

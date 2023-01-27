@@ -26,8 +26,8 @@ const FlightDetails = () => {
             content = <Row>
                               <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                                     <Image
-                                          width="100"
-                                          height={200}
+                                          width="50%"
+                                          // height={200}
                                           src={flight?.links?.mission_patch}
                                           fallback={flight?.links?.mission_patch}
                                     />
