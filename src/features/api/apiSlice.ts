@@ -5,6 +5,7 @@ export interface Flights {
       mission_name: string,
       launch_year: string,
       details: string,
+      launch_success: boolean,
       upcoming: boolean,
       links: {
             mission_patch: string;

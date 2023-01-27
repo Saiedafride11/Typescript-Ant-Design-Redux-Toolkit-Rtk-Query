@@ -11,6 +11,7 @@ type FlightProps = {
             mission_name: string,
             launch_year: string,
             details: string,
+            launch_success: boolean,
             upcoming: boolean,
             links: {
                   mission_patch: string
@@ -19,7 +20,7 @@ type FlightProps = {
 }
 
 const Flight = ({flight} : FlightProps) => {
-      const {flight_number, mission_name, links, launch_year, details, upcoming}  = flight;
+      const {flight_number, mission_name, links, launch_year}  = flight;
       const navigate = useNavigate();
 
       const handleFlightDetails = () => {
@@ -36,17 +37,7 @@ const Flight = ({flight} : FlightProps) => {
                         />
                         <Typography>
                               <Title level={5}>{mission_name?.length > 12 ? `${mission_name?.slice(0, 12)}...` : mission_name}</Title>
-                              {/* <Text type="secondary">{details}</Text> */}
                               <Text type="secondary">Launch year: {launch_year}</Text>
-                              {/* <br />
-                              <Text type="secondary">
-                                    Upcomeing: { 
-                                                upcoming === true ?
-                                                <Text type="success">Yes</Text>
-                                                :
-                                                <Text type="danger">No</Text>
-                                          }
-                              </Text> */}
                         </Typography>
                   </Card>
             </div>
