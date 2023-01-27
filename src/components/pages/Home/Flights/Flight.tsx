@@ -11,6 +11,7 @@ type FlightProps = {
             mission_name: string,
             launch_year: string,
             details: string,
+            launch_date_local: string | number,
             launch_success: boolean,
             upcoming: boolean,
             links: {

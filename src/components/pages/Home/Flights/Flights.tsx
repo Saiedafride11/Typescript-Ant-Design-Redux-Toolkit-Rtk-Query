@@ -40,17 +40,30 @@ const Flights = () => {
                   setStatus("Launch Status");
                   setUpcoming("Upcoming");
 
-                   // To set two dates to two variables
-                  const todayDate = new Date();
-                  const thatDate = new Date("2020-08-29T07:40:05.000Z");
-                  const Difference_In_Time = todayDate.getTime() - thatDate.getTime();
-                  const diffDays = Math.ceil(Difference_In_Time / (1000 * 60 * 60 * 24));
+                  // To set two dates to two variables
+                  // const todayDate = new Date();
+                  // const thatDate = new Date("2020-08-29T07:40:05.000Z");
+                  // const Difference_In_Time = todayDate.getTime() - thatDate.getTime();
+                  // const diffDays = Math.ceil(Difference_In_Time / (1000 * 60 * 60 * 24));
+                  // console.log(diffDays + " days");
 
-                  console.log(diffDays + " days");
+                  let day:number;
+                  if(value === "Last Week"){
+                        day = 7
+                  }
+                  else if(value === "Last Month"){
+                        day = 30
+                  }
+                  else if(value === "Last Year"){
+                        day = 365
+                  }
 
-                  // const matchedFlights:any = flights?.filter(flight => flight?.launch_success === statue);
-                  // setFilterFlights(matchedFlights);
-                  // matchedFlightFunc(matchedFlights);
+                  const matchedFlights:any = flights?.filter(flight => (
+                        ( Math.ceil(( new Date().getTime() - new Date(flight?.launch_date_local).getTime()) / (1000 * 60 * 60 * 24))) <= day
+                  ))
+
+                  setFilterFlights(matchedFlights);
+                  matchedFlightFunc(matchedFlights);
             }
             else if(name === "Launch Status"){
                   setStatus(value);
@@ -117,7 +130,7 @@ const Flights = () => {
         content = <p>No Data found!</p>
     }
     if (!isLoading && !isError && filterFlights?.length > 0) {
-        content = <Row>HI
+        content = <Row>
                         {
 
                               filterFlights?.map((flight, index) => (
@@ -129,7 +142,7 @@ const Flights = () => {
                   </Row>
     }
     if (!isLoading && !isError && filterFlights?.length === 0 && flights?.length || 0 > 0 ) {
-        content = <Row>HELLO
+        content = <Row>
                         {
 
                               flights?.map((flight, index) => (
