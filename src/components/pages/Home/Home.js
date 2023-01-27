@@ -9,7 +9,7 @@ export default function Home() {
         <Layout>
             <Navigation/>
 
-            <Content className="site-layout" style={{ padding: '0 50px', height: '100vh' }}>
+            <Content className="site-layout" style={{ padding: '0 50px', minHeight:'100vh' }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
                     <Breadcrumb.Item>Home</Breadcrumb.Item>
                 </Breadcrumb>

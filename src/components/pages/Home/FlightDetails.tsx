@@ -12,9 +12,6 @@ const FlightDetails = () => {
       const {flightId} = useParams();
       const { data: flight, isLoading, isError } = useGetFlightQuery(flightId);
 
-      console.log("flight", flight)
-
-
       let content = null;
       if (isLoading){
             content = <LoaderFlight/>
